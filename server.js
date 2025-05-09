@@ -7,12 +7,13 @@ const userRoute = require("./routes/user.route")
 connectDB();
 const CourseRoute = require("./routes/course.route");
 const LessonRoute = require("./routes/lesson.route");
-
+const CommentRoute = require("./routes/comment.route")
 
 app.use(express.json());
 app.use(cors());
 app.use("", CourseRoute);
 app.use("", LessonRoute);
+app.use("", CommentRoute);
 
 app.use("/auth", authRoute)
 app.use("/", userRoute)

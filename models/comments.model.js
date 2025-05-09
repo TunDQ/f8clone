@@ -4,13 +4,11 @@ const commentSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
+      ref: "User"
     },
     lesson: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Lesson",
-      required: true,
+      ref: "Lesson"
     },
     content: {
       type: String,
@@ -20,4 +18,4 @@ const commentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports.commentSchema = commentSchema;
+module.exports = mongoose.model("Comments", commentSchema);
