@@ -2,10 +2,16 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const connectDB = require("./config/db");
+const authRoute = require("./routes/auth.route")
+const userRoute = require("./routes/user.route")
 connectDB();
+
 
 app.use(express.json());
 app.use(cors());
+
+app.use("/auth", authRoute)
+app.use("/", userRoute)
 
 app.get("/", async (req, res) => {
   try {
