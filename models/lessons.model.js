@@ -10,10 +10,7 @@ const lessonSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    duration: {
-      type: Number, // phút hoặc giây
-      required: true,
-    },
+
     content: {
       type: String, // HTML hoặc Markdown
       default: "",
@@ -35,4 +32,4 @@ const lessonSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports.lessonSchema = lessonSchema;
+module.exports = mongoose.model("Lessons", lessonSchema);
