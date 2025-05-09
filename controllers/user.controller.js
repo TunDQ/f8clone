@@ -1,6 +1,6 @@
 const usersModel = require("../models/users.model");
 
-const getUser = async (req, res) => {
+exports.getUser = async (req, res) => {
   try {
     const id = req.params.id;
     const user = await usersModel.findById(id);
@@ -16,7 +16,7 @@ const getUser = async (req, res) => {
     res.status(500).json(err);
   }
 };
-const updateInfoUser = async (req, res) => {
+exports.updateInfoUser = async (req, res) => {
   try {
     const id = req.params.id;
     const { name, email, avatarUrl } = req.body;
@@ -37,4 +37,3 @@ const updateInfoUser = async (req, res) => {
   }
 };
 
-module.exports = { getUser, updateInfoUser };

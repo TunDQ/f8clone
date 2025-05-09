@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 require("dotenv").config();
 const JWT_SECRET = process.env.JWT_SECRET
 const usersModel = require("../models/users.model");
-const register = async (req, res) => {
+exports.register = async (req, res) => {
   try {
     const { name, email, passwordHash, role } = req.body;
     const existUser = await usersModel.findOne({ email });
@@ -29,7 +29,7 @@ const register = async (req, res) => {
     res.status(500).json(err);
   }
 };
-const login = async (req, res) => {
+exports.login = async (req, res) => {
   try {
     const { email, passwordHash } = req.body;
     const user = await usersModel.findOne({ email });
@@ -61,4 +61,3 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
