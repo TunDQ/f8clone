@@ -7,6 +7,7 @@ exports.getUser = async (req, res) => {
     const format = {
       id: user._id,
       name: user.name,
+      avatarUrl: user.avatarUrl,
       email: user.email,
       role: user.role,
       enrolledCourses: user.enrolledCourses,

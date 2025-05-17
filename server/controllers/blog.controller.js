@@ -14,13 +14,15 @@ exports.getAllBlog = async (req, res) => {
 };
 exports.createBlog = async (req, res) => {
     try {
-      const { title, content, description } = req.body;
+      const { title, content, description,image, category } = req.body;
       const userId = req.user.id;
       const newBlog = new blogModel({
         user: userId,
         title,
         content,
-        description
+        description,
+        image,
+        category
       });
       await newBlog.save();
       const blog = await newBlog.populate("user", "name avatarUrl -_id");
