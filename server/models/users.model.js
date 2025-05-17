@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
     },
     avatarUrl: {
       type: String,
-      default: "", // hoặc null
+      default: "", 
     },
     role: {
       type: String,
