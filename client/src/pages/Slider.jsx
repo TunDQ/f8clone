@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import slider from "../assets/slider1.png";
 import slider2 from "../assets/slider2.png";
 import slider3 from "../assets/slider3.png";
+import { Course } from "../components/Course";
 const slides = [
   {
     id: 1,
@@ -69,14 +70,14 @@ export const Slider = () => {
       {/* Navigation arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow"
+        className="absolute left-0  top-30 bg-white/90 hover:bg-white text-gray-700 font-bold rounded-full w-10 h-10 flex items-center justify-center shadow"
         aria-label="Previous slide"
       >
         &#8592;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow"
+        className="absolute right-0 top-30 bg-white/90 hover:bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow"
         aria-label="Next slide"
       >
         &#8594;
@@ -92,6 +93,10 @@ export const Slider = () => {
             }`}
           ></span>
         ))}
+      </div>
+
+      <div className="mt-8">
+        <Course />
       </div>
     </div>
   );
