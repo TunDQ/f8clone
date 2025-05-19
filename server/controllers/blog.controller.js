@@ -20,7 +20,6 @@ exports.createBlog = async (req, res) => {
         user: userId,
         title,
         content,
-        description,
         image,
         category
       });
@@ -33,5 +32,41 @@ exports.createBlog = async (req, res) => {
       });
     } catch (error) {
       res.status(500).json(error.message);
+    }
+  };
+  exports.getBlogDetail = async (req, res) => {
+    try {
+      const { id } = req.params; 
+      const blog = await blogModel.findById(id).populate("user", "name avatarUrl");
+  
+      if (!blog) {
+        return res.status(404).json({ message: "Blog not found" });
+      }
+  
+      res.status(200).json({
+        title: blog.title,
+        user: blog.user,
+        content: blog.content,
+        image: blog.image
+      });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  exports.getBlogByCategory = async (req, res) => {
+    try {
+      const { category } = req.params; 
+      const blogs = await blogModel
+        .find({ category }) 
+        .populate("user", "name avatarUrl") 
+        .sort({ createdAt: -1 }); 
+  
+      if (blogs.length === 0) {
+        return res.status(404).json({ message: "No blogs found for this category" });
+      }
+  
+      res.status(200).json(blogs);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
   };
