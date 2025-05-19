@@ -34,7 +34,7 @@ exports.updateInfoUser = async (req, res) => {
 
     res.status(200).json(userInfo);
   } catch (error) {
-    res.status(500).json({ message: "Failed to update user", error });
+    res.status(500).json(error.message );
   }
 };
 
