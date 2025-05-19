@@ -3,7 +3,10 @@ const usersModel = require("../models/users.model");
 
 exports.getAllCourses = async (req, res) => {
   try {
-    const courses = await coursesModel.find();
+    const courses = await coursesModel
+      .find()
+      .populate("instructor", "avatarUrl name")
+      .populate("lessons", "title videoUrl content order isPreview");
 
     res.status(200).json(courses);
   } catch (error) {
@@ -16,6 +19,7 @@ exports.createCourse = async (req, res) => {
     const {
       title,
       description,
+      price,
       thumbnailUrl,
       category,
       level,
@@ -32,6 +36,7 @@ exports.createCourse = async (req, res) => {
       title,
       description,
       thumbnailUrl,
+      price,
       category,
       level,
       lessons,

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-
+const User = require("./users.model");
+const Lesson = require("./lessons.model");
 const courseSchema = new mongoose.Schema(
   {
     title: {
@@ -9,6 +10,10 @@ const courseSchema = new mongoose.Schema(
     },
     description: {
       type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
       required: true,
     },
     thumbnailUrl: {

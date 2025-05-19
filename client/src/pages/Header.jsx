@@ -1,5 +1,6 @@
 import React from "react";
 import F8Logo from "../assets/f8logo.webp";
+import { Course } from "../components/Course";
 export const Header = () => {
   return (
     <div className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
