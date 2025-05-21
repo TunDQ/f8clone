@@ -28,7 +28,10 @@ const BlogDetail = () => {
                 <img src={blog.user.avatarUrl} alt="Avatar" className="w-8 h-8 rounded-full object-cover mr-2" />
                 <p className="text-sm font-semibold">{blog.user.name}</p>
             </div>
-            <div className="text-gray-700 leading-relaxed">{blog.content}</div>
+            <div
+                className="text-gray-700 leading-relaxed whitespace-pre-line"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
+            ></div>
         </div>
     );
 };

@@ -70,3 +70,20 @@ exports.createBlog = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
+  exports.deleteBlog = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      const blog = await blogModel.findById(id);
+      if (!blog) {
+        return res.status(404).json({ message: "Blog not found" });
+      }
+  
+      await blogModel.findByIdAndDelete(id);
+  
+      res.status(200).json({ message: "Blog deleted successfully" });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
+  
