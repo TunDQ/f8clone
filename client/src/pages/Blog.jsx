@@ -13,16 +13,17 @@ export const Blog = () => {
         }
         fetchBlogs();
     }, []);
+    
     return (
         <div className="max-w-7xl mx-auto px-4 py-6">
-            <div>
+            <div className='w-full md:w-2/3'>
                 <h1 className="text-3xl font-bold mb-4">Bài viết nổi bật
                 </h1>
                 <p className="text-gray-600 mb-8">Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học lập trình online và các kỹ thuật lập trình web.
                 </p>
             </div>
             <div className='flex flex-col md:flex-row gap-8'>
-                <div className='flex-1'>
+                <div className='w-full md:w-2/3'>
                     {blogs.map((blog) => (
                         <div
                             className='cursor-pointer hover:shadow-lg transition rounded-2xl border mb-4 p-4'
@@ -46,14 +47,14 @@ export const Blog = () => {
                         </div>
                     ))}
                 </div>
-                <div>
-                    <h1 className="text-3xl font-bold mb-4">Xem các bài viết theo chủ đề </h1>
+                <div  className="w-full md:w-1/3">
+                    <h1 className=" text-gray-500 mb-4">Xem các bài viết theo chủ đề </h1>
                     {blogs.map((blog) => (
                         <div
                             key={blog._id}
                             className='rounded-2xl w-auto inline-block cursor-pointer hover:bg-gray-100'
                             style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}
-                            onClick={() => navigate(`/category/${blog.category}`)}
+                            onClick={() => navigate(`/category/${blog.category}`, { state: { blogs } })}
                         >
                             <span className='text-sm rounded text-blue-600'>{blog.category}</span>
                         </div>
