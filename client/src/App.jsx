@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogDetail from "./pages/BlogDetail";
 import Category from "./pages/Category";
 import { Course } from "./components/Course";
+import MyCoursesPage from "./pages/MyCoursesPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blogs/:id" element={<BlogDetail/>} />
             <Route path="/category/:name" element={<Category/>} />
+            <Route path="/my-courses" element={<MyCoursesPage/>} />
+
           </Routes>
         </main>
       </div>
