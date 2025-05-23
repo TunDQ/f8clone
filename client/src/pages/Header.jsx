@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import F8Logo from "../assets/f8logo.webp";
 import { Course } from "../components/Course";
+import MyCoursesDialog from "../components/MyCoursesDialog";
 export const Header = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+
   return (
     <div className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
       <div className="font-bold text flex items-center gap-2">
@@ -38,7 +41,9 @@ export const Header = () => {
         />
       </div>
       {/* Profile */}
-      <div className="flex items-center gap-2 cursor-pointer">
+      <div className="flex items-center gap-2 cursor-pointer"
+              onClick={() => setOpenDialog(true)}
+              >
         <span className="font-stretch-normal">
           <p className="flex p-2 gap-4">
             Khoá học của tôi
@@ -74,6 +79,8 @@ export const Header = () => {
           </p>
         </span>
       </div>
+      <MyCoursesDialog open={openDialog} onClose={() => setOpenDialog(false)} />
+
     </div>
   );
 };

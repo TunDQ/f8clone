@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Course = require("./courses.model");
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -26,12 +26,7 @@ const userSchema = new mongoose.Schema(
       enum: ["student", "admin", "instructor"],
       default: "student",
     },
-    enrolledCourses: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Course",
-      },
-    ],
+
   },
   {
     timestamps: true,

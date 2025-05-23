@@ -11,3 +11,4 @@ export const getAllBlogs = async () => {
     throw error;
   }
 };
+

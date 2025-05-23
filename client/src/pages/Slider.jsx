@@ -3,6 +3,7 @@ import slider from "../assets/slider1.png";
 import slider2 from "../assets/slider2.png";
 import slider3 from "../assets/slider3.png";
 import { Course } from "../components/Course";
+import FeaturedBlogs from "../components/FeaturedBlogs";
 const slides = [
   {
     id: 1,
@@ -97,6 +98,7 @@ export const Slider = () => {
 
       <div className="mt-8">
         <Course />
+        <FeaturedBlogs/>
       </div>
     </div>
   );

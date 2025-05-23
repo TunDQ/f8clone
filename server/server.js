@@ -9,6 +9,7 @@ const CourseRoute = require("./routes/course.route");
 const LessonRoute = require("./routes/lesson.route");
 const CommentRoute = require("./routes/comment.route")
 const BlogRoute = require("./routes/blog.route")
+const EnrollmentRoute = require("./routes/enrollment.route");
 
 app.use(express.json());
 app.use(cors());
@@ -16,6 +17,7 @@ app.use("", CourseRoute);
 app.use("", LessonRoute);
 app.use("", CommentRoute);
 app.use("", BlogRoute);
+app.use("", EnrollmentRoute);
 
 app.use("/auth", authRoute)
 app.use("/", userRoute)
