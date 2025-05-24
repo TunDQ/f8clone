@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const Course = require("./courses.model");
 const userSchema = new mongoose.Schema(
   {
     name: {

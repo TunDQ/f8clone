@@ -3,14 +3,13 @@ const usersModel = require("../models/users.model");
 exports.getUser = async (req, res) => {
   try {
     const id = req.params.id;
-    const user = await usersModel.findById(id);
+    const user = await usersModel.findById(id)
     const format = {
       id: user._id,
       name: user.name,
       avatarUrl: user.avatarUrl,
       email: user.email,
-      role: user.role,
-      enrolledCourses: user.enrolledCourses,
+      role: user.role
     };
     res.status(200).json(format);
   } catch (error) {

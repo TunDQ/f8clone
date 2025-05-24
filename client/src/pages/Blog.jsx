@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getAllBlogs } from '../services/userService';
+import { getAllBlogs } from '../services/blogService';
 import { useNavigate } from 'react-router-dom';
 
 export const Blog = () => {
