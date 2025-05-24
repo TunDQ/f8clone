@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BlogDetail from "./pages/BlogDetail";
 import Category from "./pages/Category";
 import { Course } from "./components/Course";
+import { Road } from "./pages/Road";
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
         <main className="flex-1 p-6">
           <Routes>
             <Route path="/" element={<Slider />} />
-
+            <Route path="/road" element={<Road />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blogs/:id" element={<BlogDetail/>} />
-            <Route path="/category/:name" element={<Category/>} />
+            <Route path="/blogs/:id" element={<BlogDetail />} />
+            <Route path="/category/:name" element={<Category />} />
           </Routes>
         </main>
       </div>

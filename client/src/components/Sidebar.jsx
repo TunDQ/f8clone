@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 export const Sidebar = () => {
   return (
-    <aside className="w-45 mt-2 h-screen bg-white shadow p-4">
+    <aside className="w-45 mt-2 bg-white shadow p-4 h-auto min-h-screen">
       <ul className="space-y-6 flex flex-col items-center">
         <li>
           <NavLink
@@ -32,7 +32,7 @@ export const Sidebar = () => {
         </li>
         <li>
           <NavLink
-            to="/roadmap"
+            to="/road"
             className={({ isActive }) =>
               `flex flex-col items-center gap-1 px-4 py-2 rounded-lg cursor-pointer transition ${
                 isActive ? "bg-gray-200" : ""
