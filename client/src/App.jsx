@@ -10,6 +10,7 @@ import { Course } from "./components/Course";
 import { Road } from "./pages/Road";
 
 import MyCoursesPage from "./pages/MyCoursesPage";
+import PopupModal from "./components/PopupModal";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
       <div className="flex">
         <Sidebar />
+        <PopupModal />
         <main className="flex-1 p-6">
           <Routes>
             <Route path="/" element={<Slider />} />
